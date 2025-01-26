@@ -3,29 +3,57 @@ import matplotlib.pyplot as plt
 
 
 def page_summary_body():
-    st.title("Cherry Tree Mildew Detection")
+    st.title("🍒 Cherry Tree Mildew Detection")
 
-    st.write("### Quick Project Summary\n")
-    f"**This app uses machine learning to predict whether a cherry leaf is infected with powdery mildew.\n"
+    st.write("### 📄 Project Overview")
+    st.markdown(
+        "**Welcome to the Cherry Leaf Powdery Mildew Detection App!** \n\n"
+        "This app leverages **machine learning** to analyze cherry leaf images and predict "
+        "whether they are **healthy** or **infected with powdery mildew**."
+    )
 
     st.info(
-        f"**General Information**\n"
-        f"* Powdery mildew is a fungal infection primarily targeting new leaf and bud growth and "
-        f"ripe fruit. It is triggered by humidity such as first rainfalls.\n"
-        f"* A leaf is assessed in the field and if found to be infected is treated with a fungal compound.\n"
-        f"**Project Dataset**\n"
-        f"* The available dataset contains 4280 out of +27 thousand images taken from "
-        f"cherry leaves"
-        f" with powdery mildew and healthy leaves.")
+        "### 🌿 About Powdery Mildew\n"
+        "- Powdery mildew is a fungal infection that primarily affects new leaf and bud growth.\n"
+        "- It thrives in humid conditions and is commonly triggered by first rainfalls.\n"
+        "- Early detection and treatment with fungicidal compounds are essential to prevent crop damage."
+    )
 
-    st.write(
-        f"* For additional information, please visit and **read** the "
-        f"[Project README file](https://github.com/Katherine-Holland/CP5_mildew-detection-in-cherry-leaves/README.md).")
-    
+    st.write("### 📊 Project Dataset")
+    st.markdown(
+        "- The dataset contains **4,280** carefully selected images from a total of over **27,000**, "
+        "including both **healthy** and **powdery mildew-infected** cherry leaves.\n"
+        "- The images are labeled to facilitate training of a machine learning model to achieve high prediction accuracy.\n"
+    )
+
+    st.markdown(
+        "For additional information, please refer to the "
+        "[Project README file](https://github.com/Katherine-Holland/CP5_mildew-detection-in-cherry-leaves/README.md)."
+    )
 
     st.success(
-        f"The project has 2 business requirements:\n"
-        f"* 1 - The client is interested in having a study to differentiate "
-        f"an infected leaf and a healthy leaf visually.\n"
-        f"* 2 - The client is interested in telling whether a given leaf is infected or not "
-        )
+        "### 🎯 Business Objectives\n"
+        "The project aims to achieve two key business requirements:\n\n"
+        "1. **Visual Differentiation Study**\n"
+        "   - Conducting a thorough analysis to visually distinguish healthy cherry leaves from those affected by powdery mildew.\n\n"
+        "2. **AI-Powered Detection**\n"
+        "   - Developing a machine learning model to accurately predict whether a given leaf is infected."
+    )
+
+    st.write("---")
+
+    st.write("### 🏆 Project Goals")
+    st.markdown(
+        "- Achieve **97% prediction accuracy** to meet client expectations.\n"
+        "- Provide an intuitive **dashboard interface** for users to analyze and predict leaf conditions.\n"
+        "- Maintain **data privacy and security**, adhering to NDA agreements.\n"
+    )
+
+    st.write("### 🚀 How to Use This App")
+    st.markdown(
+        "1. Navigate through the provided pages to explore project insights.\n"
+        "2. Upload cherry leaf images for live predictions.\n"
+        "3. Download analysis reports and predictions for further review.\n"
+    )
+
+    st.info("🔍 Let's dive into the project and explore the findings!")

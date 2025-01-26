@@ -6,32 +6,42 @@ from tensorflow.keras.models import load_model
 from PIL import Image
 from src.data_management import load_pkl_file
 
-
 def plot_predictions_probabilities(pred_proba, pred_class):
     """
-    Plot prediction probability results
+    Plot prediction probability results with proper logic to reflect the model's output.
     """
+    # Define class labels and their corresponding probabilities
+    class_labels = ['Uninfected', 'Infected']
+    probabilities = [1 - pred_proba, pred_proba]
 
-    prob_per_class = pd.DataFrame(
-        data=[0, 0],
-        index={'Infected': 1, 'Uninfected': 0}.keys(),
-        columns=['Probability']
-    )
-    prob_per_class.loc[pred_class] = pred_proba
-    for x in prob_per_class.index.to_list():
-        if x not in pred_class:
-            prob_per_class.loc[x] = 1 - pred_proba
-    prob_per_class = prob_per_class.round(3)
-    prob_per_class['Diagnostic'] = prob_per_class.index
+    # Create a DataFrame for the probabilities
+    prob_per_class = pd.DataFrame({
+        'Diagnostic': class_labels,
+        'Probability': probabilities
+    })
 
+    # Round probabilities for better readability
+    prob_per_class['Probability'] = prob_per_class['Probability'].round(3)
+
+    # Plot the bar chart using Plotly
     fig = px.bar(
         prob_per_class,
         x='Diagnostic',
-        y=prob_per_class['Probability'],
+        y='Probability',
         range_y=[0, 1],
-        width=600, height=300, template='seaborn'
-        )
+        width=600,
+        height=300,
+        template='seaborn',
+        color='Diagnostic',  # Color bars based on class for better visualization
+    )
+    fig.update_layout(
+        title=f"Prediction Confidence for {pred_class.upper()}",
+        xaxis_title="Leaf Condition",
+        yaxis_title="Probability",
+        showlegend=False
+    )
     st.plotly_chart(fig)
+
 
 
 def resize_input_image(img, version):
@@ -48,8 +58,6 @@ def resize_input_image(img, version):
     my_image = np.expand_dims(img_resized, axis=0) / 255.0  # Normalize pixel values
     
     return my_image
-
-
 
 def load_model_and_predict(my_image, version):
     """
