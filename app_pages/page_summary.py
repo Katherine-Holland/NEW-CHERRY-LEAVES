@@ -11,12 +11,12 @@ def page_summary_body():
     st.info(
         f"**General Information**\n"
         f"* Powdery mildew is a fungal infection primarily targeting new leaf and bud growth and "
-        f"ripe fruit. It is triggered by humidity such as first rainfalls\n"
-        f"* A leaf is assessed in the field and if found to be infected is treated with a fungal compound\n"
+        f"ripe fruit. It is triggered by humidity such as first rainfalls.\n"
+        f"* A leaf is assessed in the field and if found to be infected is treated with a fungal compound.\n"
         f"**Project Dataset**\n"
         f"* The available dataset contains 4280 out of +27 thousand images taken from "
         f"cherry leaves"
-        f"those with powdery mildew and healthy leaves.")
+        f" with powdery mildew and healthy leaves.")
 
     st.write(
         f"* For additional information, please visit and **read** the "

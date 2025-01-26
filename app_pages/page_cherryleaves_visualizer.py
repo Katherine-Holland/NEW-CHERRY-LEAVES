@@ -30,7 +30,7 @@ def page_cherryleaves_visualizer_body():
       st.image(avg_healthy, caption='Healthy - Average and Variability')
       st.write("---")
 
-    if st.checkbox("Differences between average painfected and average healthy leaves"):
+    if st.checkbox("Differences between average infected and average healthy leaves"):
           diff_between_avgs = plt.imread(f"outputs/{version}/avg_diff.png")
 
           st.warning(
