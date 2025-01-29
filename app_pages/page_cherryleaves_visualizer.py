@@ -9,7 +9,7 @@ import itertools
 import random
 
 def page_cherryleaves_visualizer_body():
-    st.title("🍒 Cherry Leaves Visualizer")
+    st.title("🍒 Cherry Leaves Visualiser")
 
     st.write("### 🖼️ Visual Analysis of Cherry Leaves")
     st.info(
