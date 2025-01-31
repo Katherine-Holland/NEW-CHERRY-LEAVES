@@ -11,22 +11,28 @@ from src.machine_learning.predictive_analysis import (
     plot_predictions_probabilities
 )
 
+
 def page_cherryleaves_detector_body():
     st.title("🍒 Cherry Leaf Powdery Mildew Detection")
 
     st.write("### 🔍 Project Objective")
     st.info(
         "**Objective:**\n"
-        "This page allows users to upload cherry leaf images and use a machine learning model to predict "
+        "This page allows users to upload cherry leaf images"
+        "and use a machine learning model to predict "
         "whether the leaves are healthy or infected with powdery mildew.\n\n"
         "**Client Interest:**\n"
-        "- The client aims to automate the detection of infected leaves to ensure product quality.\n"
+        "- The client aims to automate"
+        "the detection of infected leaves to ensure"
+        "rapid analysis at scale. This will ensure early detection"
+        "and ultimately improve quality yields .\n"
     )
 
     st.write("### 📥 Upload Cherry Leaf Images")
     st.markdown(
-        "- You can download a sample dataset of healthy and infected cherry leaves "
-        "[from Kaggle here](https://www.kaggle.com/codeinstitute/cherry-leaves).\n"
+        "- You can download a sample dataset of"
+        "healthy and infected cherry leaves "
+        "[here](https://www.kaggle.com/codeinstitute/cherry-leaves).\n"
         "- Upload one or more **PNG** images below to obtain predictions."
     )
 
@@ -51,7 +57,13 @@ def page_cherryleaves_detector_body():
             # Load and display image
             img_pil = Image.open(image)
             img_array = np.array(img_pil)
-            st.image(img_pil, caption=f"🖼️ Image Size: {img_array.shape[1]}px width x {img_array.shape[0]}px height")
+            st.image(
+                img_pil,
+                caption=(
+                    f"🖼️ Image Size: {img_array.shape[1]}px width x "
+                    f"{img_array.shape[0]}px height"
+                )
+            )
 
             # Update progress
             progress_bar.progress((idx + 1) / total_images)
@@ -62,14 +74,26 @@ def page_cherryleaves_detector_body():
             # Resize and predict
             version = 'v1'
             resized_img = resize_input_image(img=img_pil, version=version)
-            pred_proba, pred_class = load_model_and_predict(resized_img, version=version)
+            pred_proba, pred_class = load_model_and_predict(
+                resized_img, version=version
+            )
 
             # Display prediction results
-            st.success(f"**Prediction:** The leaf is **{pred_class.upper()}** with {pred_proba*100:.2f}% confidence.")
+            st.success(
+                f"**Prediction:** The leaf is **{pred_class.upper()}** "
+                f"with {pred_proba * 100:.2f}% confidence."
+            )
             plot_predictions_probabilities(pred_proba, pred_class)
 
             # Add result to the report
-            new_row = pd.DataFrame([{"Image Name": image.name, "Prediction": pred_class, "Confidence": f"{pred_proba*100:.2f}%"}])
+            new_row = pd.DataFrame([
+                {
+                    "Image Name": image.name,
+                    "Prediction": pred_class,
+                    "Confidence": f"{pred_proba * 100:.2f}%"
+                }
+            ])
+
             df_report = pd.concat([df_report, new_row], ignore_index=True)
 
         st.write("---")
@@ -78,10 +102,14 @@ def page_cherryleaves_detector_body():
             st.table(df_report)
 
             # Download report button
-            st.markdown(download_dataframe_as_csv(df_report), unsafe_allow_html=True)
+            st.markdown(
+                download_dataframe_as_csv(df_report),
+                unsafe_allow_html=True
+            )
 
             st.info(
-                "You can download the table above as a CSV file for further analysis."
+                "You can download the table above"
+                " as a CSV file for further analysis."
             )
 
         # Complete progress bar
