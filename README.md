@@ -93,7 +93,7 @@ The dashboard is structured into the following pages:
 - Highlights current findings from visual analysis and model training.
 
 ### **Page 5: Model Performance Metrics**
-_ Both colour and greyscale models were tested for:
+- Both colour and greyscale models were tested for:
 - Training accuracy and loss plots.
 - Test set performance metrics.
 - Visual charts to show data results were used to show accuracy and loss.
@@ -171,6 +171,7 @@ _ Both colour and greyscale models were tested for:
 ## 📈 **Key Results**
 - The **color model** achieved a **test set accuracy exceeding 97%**, meeting the client's expectations.
 - The **grayscale model** marginally improved accuracy and loss and file size and would be worth exploring further as a scaleable solution for larger datasets.
+- The charts show an accurate result and there are no signs of over or underfitting, this was achieved using stop loss within the training models.
 
 ---
 
@@ -213,6 +214,7 @@ The project was deployed using **Render** for a seamless and scalable web servic
 
 ## 📜 **License**
 This project was conducted under an NDA and is proprietary to Farmy & Foods. Unauthorized sharing of the dataset or codebase is prohibited.
+The restricted data is saved in a .git ignore file.
 
 ---
 
