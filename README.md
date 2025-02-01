@@ -53,52 +53,53 @@ The hypothesis was tested using:
 ## 🛠️ **Machine Learning Pipeline**
 ### Key Steps:
 1. **Data Preprocessing:**
-   - Images resized to manageable dimensions (e.g., 100x100 or 256x256 pixels).
-   - Experimented with grayscale conversion to optimize runtime.
+   - Resize images to manageable dimensions (256x256 pixels).
+   - Experiment with grayscale conversion to optimize runtime and to test accuracy.
 
 2. **Model Architecture:**
-   - Built using a **Convolutional Neural Network (CNN)**.
-   - Incorporated **dropout layers** and **early stopping** to prevent overfitting.
-   - The **grayscale model** achieved improved runtime without sacrificing accuracy.
+   - Build using a **Convolutional Neural Network (CNN)**.
+   - Incorporate **dropout layers** and **early stopping** to prevent overfitting.
+   - The **grayscale model** will be trialled to see if it improves runtime and or accuracy.
 
 3. **Evaluation Metrics:**
    - Accuracy and loss on training, validation, and test sets.
-   - Confusion matrix to analyze false positives and negatives.
-   - Performance met the 97% accuracy threshold required by the client.
 
 4. **Deployment:**
-   - Integrated the model into a Streamlit dashboard for real-time predictions.
+   - Integrate the model into a Streamlit dashboard for real-time predictions.
 
 ---
 
 ## 📊 **Dashboard Features**
 The dashboard is structured into the following pages:
 
-### **Page 1: Project Summary**
+### **Page 1: Quick Project Summary**
 - Overview of the project, dataset, and business requirements.
 - Explanation of powdery mildew and its impact.
 
-### **Page 2: Cherry Leaf Visualizer**
+### **Page 2: Leaf Visualizer**
 - Visual analysis:
   - Image montages for both healthy and infected leaves.
   - Average and variability images for each class.
   - Differences between the average healthy and infected images.
+  - Uses checkboxes to select relevant information.
 
-### **Page 3: Cherry Leaf Detector**
+### **Page 3: Powdery Mildew Detection**
 - File uploader for users to upload images for predictions.
 - Displays uploaded images, prediction results, and probabilities.
 - Downloadable summary report of predictions.
 
 ### **Page 4: Project Hypothesis**
 - Outlines project hypothesis and validation process.
-- Highlights findings from visual analysis and model training.
+- Highlights current findings from visual analysis and model training.
 
-### **Page 5: Model Performance**
+### **Page 5: Model Performance Metrics**
+_ Both colour and greyscale models were tested for:
 - Training accuracy and loss plots.
 - Test set performance metrics.
-- Confusion matrix analysis.
+- Visual charts to show data results were used to show accuracy and loss.
 
 ---
+## Epics and User Stories
 
 ## 🌱 Epic 1: Data Collection and Preparation  
 *As a data scientist, I need to collect and preprocess data so that I can train an accurate model.*
@@ -118,7 +119,7 @@ The dashboard is structured into the following pages:
 - **As a researcher,** I want to generate an average and variability image for healthy and infected leaves so that I can identify key visual differences.  
 - **As a data analyst,** I want to create an image montage to display a range of healthy and infected leaves so that users can visually compare them.  
 - **As a scientist,** I want to generate histograms and bar charts showing the dataset distribution across training, validation, and test sets so that I can ensure data is split correctly.  
-- **As a researcher,** I want to analyze grayscale vs. color images to determine if grayscale preprocessing improves classification accuracy.  
+- **As a researcher,** I want to analyze grayscale vs. color images to determine if grayscale preprocessing improves classification accuracy and or speed of analysis.  
 
 ---
 
@@ -127,10 +128,9 @@ The dashboard is structured into the following pages:
 
 ### **User Stories:**
 - **As a machine learning engineer,** I want to define a convolutional neural network (CNN) architecture so that it can accurately classify cherry leaves.  
-- **As a data scientist,** I want to experiment with different image sizes (256x256, 100x100, etc.) to find the best trade-off between model accuracy and file size.  
+- **As a data scientist,** I want to experiment with greyscale to find the best trade-off between model accuracy and file size.  
 - **As a model developer,** I want to train the model using early stopping to prevent overfitting and optimize its generalization.  
 - **As a researcher,** I want to compare model performance using accuracy, precision, recall, and F1-score to validate its effectiveness.  
-- **As a data scientist,** I want to implement and visualize a confusion matrix to assess false positives and false negatives.  
 
 ---
 
@@ -140,7 +140,7 @@ The dashboard is structured into the following pages:
 ### **User Stories:**
 - **As a business user,** I want to see a project summary page so that I understand the purpose and scope of the solution.  
 - **As a researcher,** I want to see visualizations (montages, average images, dataset statistics) so that I can verify the study's findings.  
-- **As a farmer,** I want to upload images of cherry leaves so that I can check if they are healthy or infected.  
+- **As a business user,** I want to upload images of cherry leaves so that I can check if they are healthy or infected quickly.  
 - **As a user,** I want to see a confidence percentage for the model’s prediction so that I understand how reliable the result is.  
 - **As a data analyst,** I want to download a report of my uploaded images and predictions so that I can review the results offline.  
 
@@ -150,7 +150,7 @@ The dashboard is structured into the following pages:
 *As a machine learning engineer, I need to test, deploy, and monitor the model so that it remains reliable in real-world conditions.*  
 
 ### **User Stories:**
-- **As a machine learning engineer,** I want to evaluate the model's performance on an unseen test set to ensure it meets the 97% accuracy requirement.  
+- **As a machine learning engineer,** I want to evaluate the model's performance on an unseen test set to ensure it meets or exceeds the 97% accuracy requirement.  
 - **As a developer,** I want to deploy the trained model into a cloud-based application using Streamlit so that users can interact with it easily.  
 - **As a business user,** I want a simple interface where I can upload images and receive real-time predictions.  
 - **As a model developer,** I want to log prediction data so that I can track model performance over time and detect potential drift.  
@@ -164,24 +164,25 @@ The dashboard is structured into the following pages:
 ### **User Stories:**
 - **As a data engineer,** I want to store and process all client-provided data under an NDA to protect confidentiality.  
 - **As a machine learning developer,** I want to avoid dataset biases that could impact predictions, ensuring fair and transparent results.  
-- **As a project manager,** I want to provide documentation explaining the limitations of the model so that stakeholders understand its scope.  
+- **As a project manager,** I want to provide a hypothesis explaining the project so that stakeholders understand its scope.  
 
 ---
 
 ## 📈 **Key Results**
-- The **color model** achieved a **test set accuracy of 97%**, meeting the client's expectations.
-- The **grayscale model** reduced runtime by 60% while maintaining the same accuracy, demonstrating a scalable solution.
-- Visual analysis supported the hypothesis, with subtle differences observed between healthy and infected leaves.
+- The **color model** achieved a **test set accuracy exceeding 97%**, meeting the client's expectations.
+- The **grayscale model** marginally improved accuracy and loss and file size and would be worth exploring further as a scaleable solution for larger datasets.
 
 ---
 
 ## 🔧 **Unfixed Bugs**
-1. **Prediction Chart Display Issue**:  
-   Occasionally, the bar chart displaying prediction probabilities shows both classes, even when the result is definitive. This does not impact the accuracy but requires refinement in future iterations.
+1. **Prediction Confidence Display Issue**:  
+   When uploading a healthy leaf for analysis, the result intermittently suggests a 0% confidence of accuracy. This does not impact the accuracy which is correct but requires    
+   refinement in future iterations. I was unable to find a soloution to this bug.
    
 2. **Scalability for Multi-Class Problems**:  
-   While the system performs well for binary classification, future scalability to multi-class problems will require further testing and optimization.
-
+   While the system performs well for binary classification, future scalability to multi-class problems will require further testing and optimization and the use for example, of 
+   softmax. I would also evaluate using a confusion matrix for future iterations where datasets are less balanced or contain harder to classify examples.
+ 
 ---
 
 ## 🚀 **Deployment Instructions**
@@ -197,11 +198,16 @@ The project was deployed using **Render** for a seamless and scalable web servic
 ## 🧰 **Technologies Used**
 - **Programming Language:** Python
 - **Libraries and Frameworks:**
-  - **TensorFlow/Keras:** Model training and evaluation.
-  - **Pandas and NumPy:** Data preprocessing and manipulation.
-  - **Matplotlib, Seaborn, Plotly:** Data visualizations.
+  - **TensorFlow/Keras:** Model training and evaluation (eg. used to train models in the notebooks for Model evaluating and feature reduction).
+  - **Pandas and NumPy:** Data preprocessing and manipulation (Eg. Data tables on the ML performance page).
+  - **Matplotlib, Seaborn, Plotly:** Data visualizations (used for charts on the ML performance page).
   - **Streamlit:** Interactive dashboard development.
-- **Deployment Platform:** Render.
+  - **Deployment Platform:** Render for deployment
+
+---
+
+# Testing
+- The project passes the Code Institute Python Linter with no errors and is PEP 8 compliant.
 
 ---
 
@@ -213,8 +219,11 @@ This project was conducted under an NDA and is proprietary to Farmy & Foods. Una
 ## 🤝 **Credits**
 ### Content:
 - **Dataset:** [Kaggle Cherry Leaves Dataset](https://www.kaggle.com/codeinstitute/cherry-leaves)
-- **Tutorials and Resources:** TensorFlow and Code Institute.
-
+- **Tutorials and Resources:**
+- TensorFlow [tutorials](https://www.tensorflow.org/guide/keras/sequential_model).
+- Code Institute Malaria Detector walkthrough.
+- Coursera - [Machine Learning Specialization](https://www.coursera.org/specializations/machine-learning-introduction).
+- Emoji use - [Streamlit] (https://streamlit-emoji-shortcodes-streamlit-app-gwckff.streamlit.app/).
 ---
 
 ## 🗺️ **Future Plans**
@@ -222,7 +231,8 @@ This project was conducted under an NDA and is proprietary to Farmy & Foods. Una
    Test the model with external datasets to ensure robustness across different farms and conditions.
 
 2. **Scalability for Multi-Class Problems:**  
-   Future versions could incorporate **softmax activation** to classify multiple plant diseases, expanding beyond binary classification and allowing for different species to be tested such as peach trees.
+   Future versions could incorporate **softmax activation** to classify multiple plant diseases, expanding beyond binary classification and allowing for different species to be 
+   tested such as peach trees.
 
 3. **IoT and Mobile Solutions:**  
    Deploy lightweight versions of the model for in-field detection using mobile devices.
